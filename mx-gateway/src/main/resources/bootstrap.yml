@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: mx-gateway
+  cloud:
+    consul:
+      discovery:
+        hostname: localhost
+        register: true
+        service-name: ${spring.application.name}
+        heartbeat:
+          enabled: true
+      host: localhost
+      port: 8500
+server:
+  port: 8080
