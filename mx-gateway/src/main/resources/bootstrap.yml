@@ -4,9 +4,9 @@ spring:
   cloud:
     consul:
       discovery:
-        hostname: localhost
         register: true
         service-name: ${spring.application.name}
+        instance-id: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
         heartbeat:
           enabled: true
       host: localhost
