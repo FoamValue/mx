@@ -11,5 +11,22 @@ spring:
           enabled: true
       host: localhost
       port: 8500
+    gateway:
+      routes:
+        - id: mx-sys
+          uri: http://localhost:8081/
+          order: 0
+          predicates:
+            - Path=/sys/**
+          filters:
+            - StripPrefix=1
+        - id: mx-school
+          uri: http://localhost:8082/
+          order: 0
+          predicates:
+            - Path=/school/**
+          filters:
+            - StripPrefix=1
+      default-filters:
 server:
   port: 8080

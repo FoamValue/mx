@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: mx-school
+  cloud:
+    consul:
+      discovery:
+        register: true
+        service-name: ${spring.application.name}
+        instance-id: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
+        heartbeat:
+          enabled: true
+      host: localhost
+      port: 8500
+server:
+  port: 8082
