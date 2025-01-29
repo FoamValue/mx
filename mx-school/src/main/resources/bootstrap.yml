@@ -11,5 +11,12 @@ spring:
           enabled: true
       host: localhost
       port: 8500
+  main:
+    web-application-type: reactive
 server:
   port: 8082
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: full

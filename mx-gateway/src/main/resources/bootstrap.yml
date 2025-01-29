@@ -14,19 +14,26 @@ spring:
     gateway:
       routes:
         - id: mx-sys
-          uri: http://localhost:8081/
+          uri: lb://mx-sys
           order: 0
           predicates:
             - Path=/sys/**
           filters:
             - StripPrefix=1
         - id: mx-school
-          uri: http://localhost:8082/
+          uri: lb://mx-school
           order: 0
           predicates:
             - Path=/school/**
           filters:
             - StripPrefix=1
       default-filters:
+  main:
+    web-application-type: reactive
 server:
   port: 8080
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: full

@@ -3,7 +3,7 @@ package cn.chenxinjie.mx.sys.api;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@FeignClient(name = "mx-school", url = "http://localhost:8082")
+@FeignClient(name = "mx-school")
 public interface SchoolOpenAPI {
 
     @PostMapping("/hello")
