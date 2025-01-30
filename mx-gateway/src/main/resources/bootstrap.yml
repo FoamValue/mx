@@ -11,6 +11,9 @@ spring:
           enabled: true
       host: localhost
       port: 8500
+    circuitbreaker:
+      resilience4j:
+        enabled: true
     gateway:
       routes:
         - id: mx-sys
@@ -28,12 +31,14 @@ spring:
           filters:
             - StripPrefix=1
       default-filters:
+    openfeign:
+      httpclient:
+        connection-timeout: 2000
+        ok-http:
+          read-timeout: 10s
+      circuitbreaker:
+        enabled: true
   main:
     web-application-type: reactive
 server:
   port: 8080
-feign:
-  client:
-    config:
-      default:
-        loggerLevel: full

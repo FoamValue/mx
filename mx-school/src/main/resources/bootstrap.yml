@@ -11,12 +11,17 @@ spring:
           enabled: true
       host: localhost
       port: 8500
+    circuitbreaker:
+      resilience4j:
+        enabled: true
+    openfeign:
+      httpclient:
+        connection-timeout: 2000
+        ok-http:
+          read-timeout: 10s
+      circuitbreaker:
+        enabled: true
   main:
     web-application-type: reactive
 server:
   port: 8082
-feign:
-  client:
-    config:
-      default:
-        loggerLevel: full

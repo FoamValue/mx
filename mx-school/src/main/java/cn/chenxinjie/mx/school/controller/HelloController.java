@@ -9,7 +9,12 @@ public class HelloController {
 
     @ResponseBody
     @PostMapping("/hello")
-    private String hello() {
+    private String hello(){
+//        try {
+//            Thread.sleep(60000l); // 模拟延迟
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
         return "school: hello world!";
     }
 }
