@@ -18,7 +18,6 @@ import java.util.stream.Collectors;
 public class SchoolApplication {
 
     public static void main(String[] args) {
-        System.out.println("SchoolApplication start");
         SpringApplication.run(SchoolApplication.class, args);
     }
 

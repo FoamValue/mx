@@ -19,7 +19,6 @@ import java.util.stream.Collectors;
 public class SysApplication {
 
     public static void main(String[] args) {
-        System.out.println("SysApplication start");
         SpringApplication.run(SysApplication.class, args);
     }
 
