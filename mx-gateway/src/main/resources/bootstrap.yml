@@ -1,44 +1,7 @@
 spring:
-  application:
-    name: mx-gateway
   cloud:
-    consul:
-      discovery:
-        register: true
-        service-name: ${spring.application.name}
-        instance-id: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
-        heartbeat:
-          enabled: true
-      host: localhost
-      port: 8500
-    circuitbreaker:
-      resilience4j:
-        enabled: true
-    gateway:
-      routes:
-        - id: mx-sys
-          uri: lb://mx-sys
-          order: 0
-          predicates:
-            - Path=/sys/**
-          filters:
-            - StripPrefix=1
-        - id: mx-school
-          uri: lb://mx-school
-          order: 0
-          predicates:
-            - Path=/school/**
-          filters:
-            - StripPrefix=1
-      default-filters:
-    openfeign:
-      httpclient:
-        connection-timeout: 2000
-        ok-http:
-          read-timeout: 10s
-      circuitbreaker:
-        enabled: true
-  main:
-    web-application-type: reactive
-server:
-  port: 8080
+    config:
+      uri: http://localhost:8888
+      name: mx-gateway
+      profile: dev
+      label: main

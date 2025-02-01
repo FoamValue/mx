@@ -19,6 +19,7 @@
         <module>mx-gateway</module>
         <module>mx-sys</module>
         <module>mx-school</module>
+        <module>mx-config</module>
     </modules>
 
     <properties>

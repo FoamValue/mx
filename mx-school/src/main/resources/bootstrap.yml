@@ -1,27 +1,7 @@
 spring:
-  application:
-    name: mx-school
   cloud:
-    consul:
-      discovery:
-        register: true
-        service-name: ${spring.application.name}
-        instance-id: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
-        heartbeat:
-          enabled: true
-      host: localhost
-      port: 8500
-    circuitbreaker:
-      resilience4j:
-        enabled: true
-    openfeign:
-      httpclient:
-        connection-timeout: 2000
-        ok-http:
-          read-timeout: 10s
-      circuitbreaker:
-        enabled: true
-  main:
-    web-application-type: reactive
-server:
-  port: 8082
+    config:
+      uri: http://localhost:8888
+      name: mx-school
+      profile: dev
+      label: main
