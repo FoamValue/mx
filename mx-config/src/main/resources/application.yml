@@ -1,0 +1,23 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: mx-config
+  cloud:
+    main:
+      web-application-type: reactive
+    consul:
+      discovery:
+        register: true
+        service-name: ${spring.application.name}
+        instance-id: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
+        heartbeat:
+          enabled: true
+      host: localhost
+      port: 8500
+    config:
+      server:
+        git:
+          uri: file:/Users/chenxinjie/github/config
+          default-label: main
+          search-paths: repo
